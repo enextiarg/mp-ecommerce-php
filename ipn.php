@@ -1,4 +1,13 @@
 <?php 
+$post_data = $_POST['data'];
+
+if (!empty($post_data)) {
+    $filename = 'log.json';
+    $handle = fopen($filename, "w");
+    fwrite($handle, $post_data);
+    fclose($handle);
+    echo $file;
+}
 
 require_once './vendor/autoload.php';
                                     
@@ -24,11 +33,6 @@ MercadoPago\SDK::setIntegratorId("dev_24c65fb163bf11ea96500242ac130004");
             break;
     }
 
-  
-  $json_string = json_encode($data);
 
-  $file_handle = fopen('log.json', 'w');
-  fwrite($file_handle, $json_string);
-  fclose($file_handle);
 
 ?>
