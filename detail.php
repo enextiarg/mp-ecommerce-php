@@ -133,7 +133,7 @@
                                     
                                     $payer->address = array(
                                         "street_name" => "False",
-                                        "street_number" => 123,
+                                        "street_number" => "123",
                                         "zip_code" => "1111"
                                     );
 
@@ -145,15 +145,14 @@
                                     $item->currency_id = "ARS";
                                     $item->unit_price = $_POST['price'];
                                     $item->picture_url = 'https://enextimp.herokuapp.com/'.$_POST['img'];
+                                    $item->description = "​Dispositivo móvil de Tienda e-commerce";
                                     
                                     $preference = new MercadoPago\Preference();
                                     $preference->payment_methods = array(
-                                        "excluded_payment_methods" => array(
-                                          array("id" => "atm"),
-                                          array("id" => "amex")
-                                        ),
+                                        "excluded_payment_methods" => array(array("id" => "amex")),
+                                        "excluded_payment_types" => array(array("id" => "atm")),
                                         "installments" => 6
-                                      );
+                                    );
                                     $preference->payer = $payer;
                                     $preference->items = [
                                         $item

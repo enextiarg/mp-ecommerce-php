@@ -24,7 +24,8 @@ MercadoPago\SDK::setIntegratorId("dev_24c65fb163bf11ea96500242ac130004");
             break;
     }
 
-    $json_string = json_encode($data);
+  
+  $json_string = json_encode($data);
 
   $file_handle = fopen('log.json', 'w');
   fwrite($file_handle, $json_string);
