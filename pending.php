@@ -10,4 +10,4 @@ $merchant_account_id = $_GET['merchant_account_id'];
 
 ?>
 
-El pago se encuentra en proceso.
+<h1>El usuario haya decidido pagar con un medio de pago offline (ticket) y el pago quede en un estado “pending” o “in_process” </h1>

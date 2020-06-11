@@ -9,4 +9,4 @@ $processing_mode = $_GET['processing_mode'];
 $merchant_account_id = $_GET['merchant_account_id'];
 ?>
 
-Al parecer no se pudo procesar el pago.
+<h1>El pago haya sido “rechazado” o no haya finalizado</h1>
