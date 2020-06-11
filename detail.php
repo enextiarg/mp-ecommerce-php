@@ -192,6 +192,12 @@
                                         </script>
                                     </form> -->
                                     <a href="<?php echo $preference->init_point?>">PAGAR EXTERNO</a>
+                                    <form action="/procesar-pago" method="POST">
+                                    <script
+                                    src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js"
+                                    data-preference-id="<?php echo $preference->id; ?>">
+                                    </script>
+                                    </form>
                                 </div>
                             </div>
                         </div>
