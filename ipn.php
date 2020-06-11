@@ -4,21 +4,23 @@
 
     switch($_POST["type"]) {
         case "payment":
-            $payment = MercadoPago\Payment.find_by_id($_POST["id"]);
-            die(var_dump($payment));
+            $data = MercadoPago\Payment::find_by_id($_POST["id"]);
             break;
         case "plan":
-            $plan = MercadoPago\Plan.find_by_id($_POST["id"]);
-            die(var_dump($plan));
+            $data = MercadoPago\Plan::find_by_id($_POST["id"]);
             break;
         case "subscription":
-            $plan = MercadoPago\Subscription.find_by_id($_POST["id"]);
-            die(var_dump($plan));
+            $data = MercadoPago\Subscription::find_by_id($_POST["id"]);
             break;
         case "invoice":
-            $plan = MercadoPago\Invoice.find_by_id($_POST["id"]);
-            die(var_dump($plan));
+            $data = MercadoPago\Invoice::find_by_id($_POST["id"]);
             break;
     }
+
+    $json_string = json_encode($data);
+
+  $file_handle = fopen('log.json', 'w');
+  fwrite($file_handle, $json_string);
+  fclose($file_handle);
 
 ?>
