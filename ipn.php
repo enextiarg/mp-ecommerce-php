@@ -1,11 +1,24 @@
-<?php 
-$collection_id = $_GET['collection_id'];
-$collection_status = $_GET['collection_status'];
-$external_ref = $_GET['external_ref'];
-$payment_type = $_GET['payment_type'];
-$preference_id = $_GET['preference_id'];
-$site_id = $_GET['site_id'];
-$processing_mode = $_GET['processing_mode'];
-$merchant_account_id = $_GET['merchant_account_id'];
+<?php
+
+    MercadoPago\SDK::setAccessToken("ENV_ACCESS_TOKEN");
+
+    switch($_POST["type"]) {
+        case "payment":
+            $payment = MercadoPago\Payment.find_by_id($_POST["id"]);
+            die(var_dump($payment));
+            break;
+        case "plan":
+            $plan = MercadoPago\Plan.find_by_id($_POST["id"]);
+            die(var_dump($plan));
+            break;
+        case "subscription":
+            $plan = MercadoPago\Subscription.find_by_id($_POST["id"]);
+            die(var_dump($plan));
+            break;
+        case "invoice":
+            $plan = MercadoPago\Invoice.find_by_id($_POST["id"]);
+            die(var_dump($plan));
+            break;
+    }
 
 ?>
